@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Login / Sign Up Form</title>
     <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="./src/main.css">
+    <link rel="stylesheet" href="Login-signup-form/src/main.css" type ="text/css"/>
 </head>
 <body>
     <div class="container">
-        <form class="form" id="login">
+        <form class="form" id="login" action ="//albums.com/login" method="post">
             <h1 class="form__title">Login</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -27,7 +27,9 @@
                 <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
             </p>
         </form>
-        <form class="form form--hidden" id="createAccount">
+
+        
+        <form class="form form--hidden" id="createAccount" action ="//albums.com/signup" method="post">
             <h1 class="form__title">Create Account</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
@@ -52,5 +54,5 @@
             </p>
         </form>
     </div>
-    <script src="./src/main.js"></script>
+    <script src="./main.js"></script>
 </body>

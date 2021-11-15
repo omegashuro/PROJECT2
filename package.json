@@ -1,0 +1,27 @@
+{
+  "name": "PROJECT2",
+  "version": "1.0.0",
+  "description": "Repo for CMPG 323 Project 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omegashuro/PROJECT2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omegashuro/PROJECT2/issues"
+  },
+  "homepage": "https://github.com/omegashuro/PROJECT2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.9.0"
+  }
+}
