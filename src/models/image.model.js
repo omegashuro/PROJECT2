@@ -1,4 +1,4 @@
-// module.exports = (sequelize, DataTypes) => {
+ module.exports = (sequelize, DataTypes) => {
     const Image = sequelize.define("image", {
       type: {
         type: DataTypes.STRING,
