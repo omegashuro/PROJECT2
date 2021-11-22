@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/website-menu-06/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="/website-menu-06/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/website-menu-06/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="/website-menu-06/css/style.css">
+    <link rel="stylesheet" type="text/css" 	href="gallery.css">
+    <link rel="stylesheet" type="text/css" 	href="lightbox.min.css">
+    <title>View</title>
+  </head>
+  <body>
+
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+
+
+      <header class="site-navbar site-navbar-target py-4" role="banner">
+
+        <div class="container">
+          <div class="row align-items-center position-relative">
+
+            <div class="col-3 ml-auto text-right order-2">
+              <div class="site-logo">
+                <a href="/Home" class="font-weight-bold text-black">CMPG323</a>
+              </div>
+            </div>
+
+            <div class="col-9 order-1 text-left mr-auto">
+              
+
+              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-view"></span></a></span>
+
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                  <li><a href="/useruploads" class="nav-link">Upload Images</a></li>
+                  <li><a href="/view" class="nav-link">View my Images</a></li>
+                  <li><a href="/" class="nav-link">Blog</a></li>
+                  <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+        </div>
+
+      </header>
+
+    <div class="hero" style="background-image: url('/website-menu-06/images/test6.jpeg');">
+
+      <br> <br> <br> <br> <br>
+      <div class = "gallery">
+        <a href="big/5dddf704c64386c08d84d784_4.png" data-lightbox="mygallery" data-title="This is the MetaData"><img src="./images/5dddf704c64386c08d84d784_4.png"></a>
+        <a href="big/git.png" data-lightbox="mygallery" data-title="This is the MetaData"><img src= "./images/git.png"/></a>
+        <a href="big/IMG_7480.JPG" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "./images/IMG_7480.JPG"/></a>
+        <a href="big/magnifier-magnifying-glass-sales-analysis-graph-chart-2-9585.png" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/magnifier-magnifying-glass-sales-analysis-graph-chart-2-9585.png"/></a>
+        <a href="big/Rpi4.jpg" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/Rpi4.jpg"/></a>
+        <a href="big/set-infographic-elements_23-2147514545.jpeg" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/set-infographic-elements_23-2147514545.jpeg"/></a>
+        <a href="big/shutterstock_683176507.jpeg" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/shutterstock_683176507.jpeg"/></a>
+        <a href="big/test.png" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/test.png"/></a>
+        <a href="big/unnamed.png" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/unnamed.png"/></a>
+        <a href="big/vector-graph-bar-chart-patterns-dark_1284-47542.jpeg" data-lightbox="mygallery" data-title="This is the MetaData"> <img src= "images/vector-graph-bar-chart-patterns-dark_1284-47542.jpeg"/></a>
+        </div>
+      <script src = "/lightbox-plus-jquery.min.js"></script>
+
+    </div>
+  
+
+
+    <script src="website-menu-06/js/jquery-3.3.1.min.js"></script>
+    <script src="website-menu-06/js/popper.min.js"></script>
+    <script src="website-menu-06/js/bootstrap.min.js"></script>
+    <script src="website-menu-06/js/jquery.sticky.js"></script>
+    <script src="website-menu-06/js/main.js"></script>
+  
+  
+  </body>
+</html>
+
+
+
+<!-- <script>
+
+	//AUTOMATICALLY FETCH IMAGES
+
+$(function() {
+
+	var baseUrl = "/images/";
+	var pictureIndex = 0;
+	var pictures = [];
+
+	function getFiles() {
+		$.ajax(baseUrl).success(function(data) {
+			pictures = [];
+			$(data).find("a[href]").each(function() {
+				var href = $(this).attr('href');
+				if (href.indexOf('.jpg') > 0 || href.indexOf('.png') > 0 || href.indexOf('.jpeg') > 0) {
+					pictures.push(href);
+				}
+			});
+			console.log(pictures.length + " pictures loaded!");
+			changePicture(0);
+		});
+	}
+
+	function changePicture(indexOffset) {
+		pictureIndex += indexOffset;
+		if (pictureIndex >= pictures.length) {
+			pictureIndex = 0;
+		} else if (pictureIndex < 0) {
+			pictureIndex = pictures.length - 1;
+		}
+		$('#viewer').attr('src', baseUrl + pictures[pictureIndex]);
+		$('#info').text((pictureIndex + 1) + "/" + pictures.length);
+	}
+
+	getFiles();
+	$(document).keydown(function(e){
+		var left = -1, right = 1;
+	    if (e.keyCode == 37) {
+	       changePicture(left); return false;
+	    } else if (e.keyCode == 39) {
+	    	changePicture(right); return false;
+	    }
+	});
+});
+</script> -->
