@@ -98,9 +98,9 @@
             </div>
            
             
-            <input class ="p font-weight-bold text-white" type="text" id="metaData" name="metaData"> Enter image Metadata<br>
+            <input class ="p font-weight-bold text-black" type="text" id="metaData" name="metaData"> Enter image Metadata<br>
            
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button> 
 
             
           </form>
@@ -109,7 +109,10 @@
       <hr />
       <div class="row">
         <div class="col-sm-12">
-          <div class="preview-images"></div>
+          <div class="preview-images">
+
+          </div>
+          <button onclick="window.location.href='/useruploads'"> Delete</button>
         </div>
       </div>
     </div>
@@ -135,6 +138,7 @@
           imagesPreview(this, "div.preview-images");
         });
       });
+      
       
 
 
