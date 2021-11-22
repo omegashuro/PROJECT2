@@ -15,12 +15,12 @@ const uploadFiles = async (req, res) => {
       type: req.file.mimetype,
       name: req.file.originalname,
       data: fs.readFileSync(
-        __basedir + "/resources/static/assets/uploads/" + req.file.filename
+        __basedir + "/public/resources/static/assets/uploads/" + req.file.filename
       ),
       
     }).then((image) => {
       fs.writeFileSync(
-        __basedir + "/resources/static/assets/tmp/" + image.name,
+        __basedir + "/public/resources/static/assets/tmp/" + image.name,
         image.data
       );
 
