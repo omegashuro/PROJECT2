@@ -145,4 +145,25 @@ $(function() {
 	    }
 	});
 });
+-------------------------------------------------------------------
+
+// Pure JavaScript to Create img tag and add attributes manually ,
+var image = document.createElement("img");
+var imageParent = document.getElementById("body");
+image.id = "id";
+image.className = "class";
+image.src = searchPic.src;            // image.src = "IMAGE URL/PATH"
+imageParent.appendChild(image);
+
+// Set src in pic1
+document["#pic1"].src = searchPic.src;
+
+// or with getElementById
+
+document.getElementById("pic1").src= searchPic.src;
+
+// jQuery to archive this,
+$("#pic1").attr("src", searchPic.src);
+
+
 </script> -->
