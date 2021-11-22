@@ -9,6 +9,15 @@
       data: {
         type: DataTypes.BLOB("long"),
       },
+      user_ID: {
+        type: DataTypes.INTEGER,
+      }, 
+      image_MetaData: {
+        type: DataTypes.STRING,
+        
+      }, 
+      
+      
     });
   
     return Image;

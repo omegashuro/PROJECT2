@@ -17,14 +17,18 @@ const uploadFiles = async (req, res) => {
       data: fs.readFileSync(
         __basedir + "/resources/static/assets/uploads/" + req.file.filename
       ),
+      
     }).then((image) => {
       fs.writeFileSync(
         __basedir + "/resources/static/assets/tmp/" + image.name,
         image.data
       );
 
-      return res.send(`File has been uploaded Successfully.`);
+      return res.redirect(`/upload`);
+      
     });
+     
+    
   } catch (error) {
     console.log(error);
     return res.send(`Error when trying upload images: ${error}`);

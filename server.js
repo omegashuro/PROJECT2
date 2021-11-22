@@ -4,29 +4,110 @@ const app = express(); // Create an ExpressJS app
 
 const db = require("./src/models");
 const initRoutes = require("./src/routes/web");
-
-
-
-
+var path = require('path');
 const bodyParser = require('body-parser'); // middleware
+
 app.use(bodyParser.urlencoded({ extended: false }));
+var session = require('express-session');
+var mysql = require('mysql');
+
+
+
+
+app.use(express.static(__dirname+'/public'));
+
+
+
+//Connection to Database
+var connection = mysql.createConnection({
+	host     : '35.193.151.189',
+	user     : 'root',
+	password : '1234',
+	database : 'albumdatabase'
+});
+
+// let Express know we'll be using some of its packages:
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
+// Route to new Login Page 
+app.get('/login', function(request, response) {
+	response.sendFile(path.join(__dirname + '/Login-signup-form/nodelogin/login.html'));
+});
+
+app.get('/view', function(request, response) {
+	response.sendFile(path.join(__dirname + '/src/views/view.html'));
+});
+
+// User Authentication in MySQL Database
+app.post('/auth', function(request, response) {
+	var username = request.body.username;
+	var password = request.body.password;
+	if (username && password) {
+		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+			if (results.length > 0) {
+				request.session.loggedin = true;
+				request.session.username = username;
+				response.redirect('/');
+			} else {
+				response.send('Incorrect Username and/or Password!');
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+
+app.get('/', function(request, response) {
+	if (request.session.loggedin) {
+		response.redirect('/home');
+    
+	} else {
+		response.send('Please login to view this page!');
+	}
+	response.end();
+    
+});
+
+
+
+
+
 
  // Route to Homepage
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/Home-Page/home.html');
+ app.get('/home', (req, res) => {
+    res.sendFile(__dirname + '/src/views/Home.html');
    });
 
-  // Route to Login Page
-app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/Login-signup-form/index.html');
-  });
 
-  app.post('/login', (req, res) => {
-    // Insert Login Code Here
-    let username = req.body.username;
-    let password = req.body.password;
-    res.send(`Username: ${username} Password: ${password}`);
-  });
+
+
+
+
+app.get('/upload', function(request, response) {
+	response.sendFile(path.join(__dirname + '/src/controllers/sent.html'));
+});
+
+
+
+//   // Route to Login Page
+// app.get('/login', (req, res) => {
+//     res.sendFile(__dirname + '/Login-signup-form/nodelogin/login.html');
+//   });
+
+  // app.post('/login', (req, res) => {
+  //   // Insert Login Code Here
+  //   let username = req.body.username;
+  //   let password = req.body.password;
+  //   res.send(`Username: ${username} Password: ${password}`);
+  // });
   
 
 
@@ -41,11 +122,6 @@ app.get('/login', (req, res) => {
    });
 
   
-
-
-
-
-
 
 
 
